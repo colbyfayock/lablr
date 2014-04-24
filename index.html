@@ -3,10 +3,10 @@
 <html class="no-js">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
+    <title>lablr</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -15,7 +15,14 @@
 
 <body>
 
-    <form>
+    <pre>
+        lablr.init({<br>
+            selector: 'input',<br>
+            test: true<br>
+        });
+    </pre>
+
+    <form class="no-jquery">
         <div class="form-row cf">
             <div class="form-column form-column-50">
                 <input type="text" placeholder="First Name">
@@ -32,7 +39,36 @@
         </div>
     </form>
 
+    <form class="jquery">
+        <div class="form-row cf">
+            <div class="form-column form-column-50">
+                <input type="text" placeholder="First Name">
+            </div>
+            <div class="form-column form-column-50 last">
+                <input type="text" placeholder="Last Name">
+            </div>
+        </div>
+        <div class="form-row cf">
+            <input type="text" placeholder="Email">
+        </div>
+        <div class="form-row cf">
+            <input type="text" placeholder="Password">
+        </div>
+    </form>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
+    <script src="js/jquery.lablr.js"></script>
     <script src="js/lablr.js"></script>
+
+    <script>
+    lablr.init({
+        selector: 'input',
+        test: true
+    });
+    $('.jquery input').lablr({
+        test: true
+    });
+    </script>
 
 </body>
 

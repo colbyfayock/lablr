@@ -38,10 +38,16 @@
         };
     }
 
-    ns.init = function(el){
-        if( !placeholderIsSupported() ) {
+    ns.init = function(userSettings){
+
+        settings = {
+            selector: userSettings.selector && userSettings.selector != '' ? userSettings.selector : false,
+            test: userSettings.test && userSettings.test != '' ? userSettings.test : false
+        };
+
+        if( settings.test || !placeholderIsSupported() ) {
           
-            var input = Array.prototype.slice.call(document.getElementsByTagName(el)),
+            var input = Array.prototype.slice.call(document.getElementsByTagName(settings.selector)),
                 inputLen = input.length,
                 createLabel;
 
@@ -62,6 +68,3 @@
     };
 
 }(this.lablr = this.lablr || {}));
-
-
-lablr.init( 'input' );
