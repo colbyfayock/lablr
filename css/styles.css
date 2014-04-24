@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+    font-family: sans-serif;
+}
+
+form {
+    width: 25em;
+    margin: 5em auto 0;
+}
+
+label {
+    display: block;
+    color: #666;
+    font-size: .9em;
+    text-transform: capitalize;
+    margin-bottom: .5em;
+}
+
+input {
+    width: 100%;
+    font-size: 1em;
+    background-color: white;
+    padding: .75em;
+    border: solid 1px #ccc;
+    border-radius: .25em;
+}
+
+.form-row {
+    margin-bottom: 1em;clear: both;
+}
+
+.form-column {
+    margin-right: 3.8%;
+    float: left;
+}
+
+.form-column.last {
+    margin-right: 0;
+}
+
+.form-column-50 {
+    width: 48%;
+}
+
+
+// Helpers
+
+.cf {
+    *zoom: 1;
+}
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}

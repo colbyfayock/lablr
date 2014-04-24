@@ -9,72 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        color: #333;
-        font-family: sans-serif;
-    }
-
-    form {
-        width: 25em;
-        margin: 5em auto 0;
-    }
-
-    label {
-        display: block;
-        color: #666;
-        font-size: .9em;
-        text-transform: capitalize;
-        margin-bottom: .5em;
-    }
-
-    input {
-        width: 100%;
-        font-size: 1em;
-        background-color: white;
-        padding: .75em;
-        border: solid 1px #ccc;
-        border-radius: .25em;
-    }
-
-    .form-row {
-        margin-bottom: 1em;clear: both;
-    }
-
-    .form-column {
-        margin-right: 3.8%;
-        float: left;
-    }
-
-    .form-column.last {
-        margin-right: 0;
-    }
-
-    .form-column-50 {
-        width: 48%;
-    }
-
-
-    // Helpers
-
-    .cf {
-        *zoom: 1;
-    }
-    .cf:before,
-    .cf:after {
-        content: " ";
-        display: table;
-    }
-    .cf:after {
-        clear: both;
-    }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 </head>
 
@@ -97,58 +32,7 @@
         </div>
     </form>
 
-    <script>
-    // Checks if placeholder is supported, if not it adds a label matching the placeholder before each input.
-
-    // Check for placeholder support
-    // Via http://stackoverflow.com/questions/8263891/simple-way-to-check-if-placeholder-is-supported
-
-    var placeholderIsSupported = function() {
-        var test = document.createElement('input');
-        return ('placeholder' in test);
-    }
-
-    // Check for full Array.prototype.slice support
-    // Via https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
-
-    var _slice = Array.prototype.slice;
-
-    try {
-        _slice.call(document.documentElement); 
-    }
-    catch (e) {
-        Array.prototype.slice = function (begin, end) {
-            var i, arrl = this.length, a = [];
-            if (this.charAt) { 
-                for (i = 0; i < arrl; i++) {
-                    a.push(this.charAt(i));
-                }
-            }
-            else { 
-                for (i = 0; i < this.length; i++) { 
-                    a.push(this[i]);
-                }
-            }
-            return _slice.call(a, begin, end || a.length);
-        };
-    }
-
-    if( !placeholderIsSupported() ) {
-      
-        var input = Array.prototype.slice.call(document.getElementsByTagName('input')),
-            inputLen = input.length;
-
-        while(input.length) {
-            var i = input.pop(),
-                p = i.getAttribute('placeholder'),
-                l = document.createElement('label');
-
-            l.innerHTML = p;
-            i.parentNode.insertBefore(l, i.parentNode.childNodes[0] || null );
-        }
-      
-    }
-    </script>
+    <script src="js/lablr.js"></script>
 
 </body>
 
