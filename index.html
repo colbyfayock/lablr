@@ -15,14 +15,7 @@
 
 <body>
 
-    <pre>
-        lablr.init({<br>
-            selector: 'input',<br>
-            test: true<br>
-        });
-    </pre>
-
-    <form class="no-jquery">
+    <form class="content lablr jquery">
         <div class="form-row cf">
             <div class="form-column form-column-50">
                 <input type="text" placeholder="First Name">
@@ -39,33 +32,20 @@
         </div>
     </form>
 
-    <form class="jquery">
-        <div class="form-row cf">
-            <div class="form-column form-column-50">
-                <input type="text" placeholder="First Name">
-            </div>
-            <div class="form-column form-column-50 last">
-                <input type="text" placeholder="Last Name">
-            </div>
-        </div>
-        <div class="form-row cf">
-            <input type="text" placeholder="Email">
-        </div>
-        <div class="form-row cf">
-            <input type="text" placeholder="Password">
-        </div>
-    </form>
+    <pre class="content">$('.jquery.lablr').lablr({
+    test: true
+});</pre>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
     <script src="js/jquery.lablr.js"></script>
-    <script src="js/lablr.js"></script>
+    <!-- <script src="js/lablr.js"></script> -->
 
     <script>
-    lablr.init({
-        selector: 'input',
-        test: true
-    });
-    $('.jquery input').lablr({
+    // lablr.init({
+    //     selector: 'input',
+    //     test: true
+    // });
+    $('.jquery.lablr input').lablr({
         test: true
     });
     </script>

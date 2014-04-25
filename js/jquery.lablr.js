@@ -21,7 +21,7 @@
 
         if( settings.test || !placeholderIsSupported() ) {
           
-            var input = $(this),
+            var input = $(this).is('form') ? $(this).find('input') : $(this),
                 inputLen = input.length,
                 currInput;
 

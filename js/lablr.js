@@ -38,16 +38,31 @@
         };
     }
 
+    try {
+        document.querySelectorAll('body');
+    } catch( e ) {
+        document.querySelectorAll = function(classname) {
+            var a = [],
+                re = new RegExp('(^| )'+classname+'( |$)'),
+                els = document.body.getElementsByTagName("*");
+            for(var i=0,j=els.length; i<j; i++)
+                if(re.test(els[i].className)) a.push(els[i]);
+            return a;
+        }
+    }
+
+
+
     ns.init = function(userSettings){
 
         settings = {
-            selector: userSettings.selector && userSettings.selector != '' ? userSettings.selector : false,
+            selector: userSettings.selector && userSettings.selector != '' ? userSettings.selector : 'input',
             test: userSettings.test && userSettings.test != '' ? userSettings.test : false
         };
 
         if( settings.test || !placeholderIsSupported() ) {
           
-            var input = Array.prototype.slice.call(document.getElementsByTagName(settings.selector)),
+            var input = Array.prototype.slice.call(document.querySelectorAll(settings.selector)),
                 inputLen = input.length,
                 createLabel;
 
