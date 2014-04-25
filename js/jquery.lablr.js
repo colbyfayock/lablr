@@ -13,11 +13,11 @@
     $.fn.lablr = function(userSettings){
 
         settings = {
-            test: false
+            test: false,
+            exceptions: false
         };
 
         $.extend(true, settings, userSettings);
-        
 
         if( settings.test || !placeholderIsSupported() ) {
           
@@ -27,7 +27,9 @@
 
             for( var i = 0; i < inputLen; i++ ) {
                 currInput = $(input[i]);
-                currInput.before( '<label>' + currInput.attr('placeholder') + '</label>' );
+                if( settings.exceptions && $.inArray( currInput.attr('type'), settings.exceptions ) !== -1 ) continue;
+                if( typeof currInput.attr('placeholder') !== 'undefined' && currInput.attr('placeholder') !== false )
+                    currInput.before( '<label class="lablr-label">' + currInput.attr('placeholder') + '</label>' );
             }
           
         }
